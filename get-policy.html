@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Policy — Mesuda Qualification Check</title>
+  <meta name="description" content="Answer a few private questions to see which life insurance and annuity products you can qualify for across Mesuda's 23 carriers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="brand-mark">M</span><span class="brand-name">Mesu<span>da</span></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="education.html">Learn</a>
+        <a href="carriers.html">Carriers</a>
+        <a href="get-policy.html" class="active">Get a Policy</a>
+        <a class="btn btn-gold nav-cta" href="get-policy.html">Get Covered</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">2-Minute Check</p>
+      <h1>See what you <span class="em">qualify</span> for.</h1>
+      <p class="hero-sub">A few private questions tell you which products and carriers fit your health, age, and goals — before anyone asks for a dollar. No credit check to start, no obligation.</p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section alt">
+    <div class="wrap split">
+      <div>
+        <div class="section-head" style="margin-bottom:24px;">
+          <p class="eyebrow">Your Qualification Profile</p>
+          <h2>Tell us about you.</h2>
+          <p>The more accurate, the better we can match you. Everything stays private and is only used to find your fit.</p>
+        </div>
+        <ul class="checklist">
+          <li>Takes about 2 minutes</li>
+          <li>No Social Security number required to see options</li>
+          <li>We shop 23 carriers, not just one</li>
+          <li>You decide if and when to apply</li>
+        </ul>
+      </div>
+
+      <div class="form-wrap">
+        <!-- ACTION: point to your form backend (MailMunch, Formspree, CRM, etc.) -->
+        <form id="qualForm" action="#" method="POST">
+          <div class="form-grid">
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input id="firstName" name="firstName" type="text" required placeholder="Jordan">
+            </div>
+            <div class="field">
+              <label for="lastName">Last name</label>
+              <input id="lastName" name="lastName" type="text" required placeholder="Rivera">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567">
+            </div>
+            <div class="field">
+              <label for="age">Age</label>
+              <input id="age" name="age" type="number" min="18" max="85" required placeholder="40">
+            </div>
+            <div class="field">
+              <label for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="">Select…</option>
+                <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option>
+                <option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option>
+                <option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+                <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option>
+                <option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+                <option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+                <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+                <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option>
+                <option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>What are you looking for?</label>
+              <div class="opt-row">
+                <label class="opt"><input type="checkbox" name="goal" value="term"> Term life</label>
+                <label class="opt"><input type="checkbox" name="goal" value="whole"> Whole life</label>
+                <label class="opt"><input type="checkbox" name="goal" value="iul"> Indexed Universal Life</label>
+                <label class="opt"><input type="checkbox" name="goal" value="annuity"> Annuity / income</label>
+                <label class="opt"><input type="checkbox" name="goal" value="notsure"> Not sure yet</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="coverage">Estimated coverage needed</label>
+              <div class="range-row">
+                <input id="coverage" name="coverage" type="range" min="50000" max="2000000" step="50000" value="500000" oninput="covVal.textContent='$'+Number(this.value).toLocaleString()">
+                <span class="range-val" id="covVal">$500,000</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Tobacco use (last 12 months)?</label>
+              <div class="opt-row">
+                <label class="opt"><input type="radio" name="tobacco" value="no" required> No</label>
+                <label class="opt"><input type="radio" name="tobacco" value="yes"> Yes</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Current health status</label>
+              <select name="health" required>
+                <option value="">Select…</option>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="fair">Fair / managing conditions</option>
+                <option value="challenged">Serious condition</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="conditions">Any conditions we should know about? <span class="hint">(diabetes, heart, etc. — helps us match carriers)</span></label>
+              <textarea id="conditions" name="conditions" rows="3" placeholder="Optional — e.g., well-controlled type 2 diabetes"></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center;">See My Qualified Options</button>
+              <p class="form-note">By submitting you agree to be contacted by a licensed Mesuda agent about your options. This is not an application and does not bind any coverage.</p>
+            </div>
+          </div>
+
+          <div class="result" id="result">
+            <h3>Your preliminary fit</h3>
+            <p id="resultText"></p>
+            <p class="verdict" id="verdict"></p>
+            <p style="margin-top:14px;"><a class="btn btn-navy" href="carriers.html">See the carriers we'll shop</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" style="margin-bottom:14px;"><span class="brand-mark">M</span><span class="brand-name">Mesu<span>da</span></span></a>
+        <p>Mesuda is a life insurance and annuity agency. We educate first, then match you to the carriers that fit your life.</p>
+      </div>
+      <div><h4>Explore</h4><a href="education.html">Learn the basics</a><a href="education.html#term">Term life</a><a href="education.html#permanent">Permanent life</a><a href="education.html#annuity">Annuities</a></div>
+      <div><h4>Get Started</h4><a href="get-policy.html">Check eligibility</a><a href="get-policy.html">Get a policy</a><a href="carriers.html">Our carriers</a></div>
+      <div><h4>Company</h4><a href="index.html">About Mesuda</a><a href="carriers.html">Carrier appointments</a><a href="get-policy.html">Contact an agent</a></div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span id="yr"></span> Mesuda. Life Insurance &amp; Annuity Agency.</span>
+      <span>Educational content only. Not tax or legal advice.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+
+    // Front-end eligibility preview (illustrative — real underwriting happens with the carrier)
+    document.getElementById('qualForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const age = parseInt(document.getElementById('age').value, 10);
+      const tobacco = document.querySelector('input[name="tobacco"]:checked')?.value;
+      const health = document.querySelector('select[name="health"]').value;
+      const r = document.getElementById('result');
+      const rt = document.getElementById('resultText');
+      const v = document.getElementById('verdict');
+      r.classList.add('show');
+
+      let fit = [], status = 'ok', cls = 'ok';
+      if (age >= 18 && age <= 60 && health !== 'challenged') {
+        fit.push('Term life — strongest rates in your age band.');
+        if (age <= 50 && tobacco === 'no') fit.push('Indexed Universal Life (IUL) — cash value + flexibility.');
+        if (age >= 45) fit.push('Fixed Indexed Annuity — if income planning is a goal.');
+      } else if (age > 60 || health === 'fair' || tobacco === 'yes') {
+        fit.push('Final expense / guaranteed-issue whole life — built for coverage, not wealth.');
+        status = 'maybe'; cls = 'maybe';
+      } else {
+        fit.push('Guaranteed-issue whole life — a fit even with health challenges.');
+        status = 'maybe'; cls = 'maybe';
+      }
+      if (health === 'challenged') { status = 'maybe'; cls = 'maybe'; }
+
+      rt.innerHTML = fit.map(f => '• ' + f).join('<br>');
+      v.className = 'verdict ' + cls;
+      v.textContent = status === 'ok'
+        ? 'Likely qualified for multiple products — let’s shop 23 carriers.'
+        : 'Likely qualified for protected products — we’ll find your best fit.';
+      r.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  </script>
+</body>
+</html>
