@@ -79,11 +79,12 @@ p { margin: 0 0 16px; }
 .brand { display: flex; align-items: center; gap: 12px; color: #fff; }
 .brand-mark {
   width: 38px; height: 38px; border-radius: 9px;
-  background: rgba(255,255,255,.10); border: 1px solid rgba(201,162,75,.45);
+  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.25);
   display: grid; place-items: center;
-  font-family: var(--serif); font-weight: 700; font-size: 22px; color: var(--gold);
+  font-family: var(--serif); font-weight: 700; font-size: 22px; color: #fff;
 }
 .brand-name { font-family: var(--serif); font-size: 21px; font-weight: 700; letter-spacing: .5px; color: #fff; }
+.brand-name .m { color: var(--gold); }
 .brand-name span { color: #fff; }
 .nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links a { color: rgba(255,255,255,.82); font-size: 15px; font-weight: 500; transition: color .15s; }
