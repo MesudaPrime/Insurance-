@@ -150,9 +150,72 @@
         <p>Training, live practice, CRM, and support at every stage of your goal. Join the agents who decided to own their income instead of renting it.</p>
         <a class="btn btn-gold" href="get-policy.html">Join the Agent Program</a>
         <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.6);">Licensing requirements vary by state. The $199 covers program training and tools, not state exam or licensing fees.</p>
+        <p style="margin-top:14px;"><button class="btn btn-ghost enroll-btn" type="button" onclick="openEnroll()">Enroll Associate Now →</button></p>
       </div>
     </div>
   </section>
+
+  <!-- ENROLL ASSOCIATE MODAL -->
+  <div class="modal-backdrop" id="enrollModal" onclick="if(event.target===this)closeEnroll()">
+    <div class="enroll-modal" role="dialog" aria-modal="true" aria-label="Enroll as an associate">
+      <div class="enroll-head">
+        <button class="enroll-close" type="button" onclick="closeEnroll()" aria-label="Close">×</button>
+        <h2>Enroll as an Associate</h2>
+        <p>Start your $199 agent program — no appointment needed.</p>
+      </div>
+      <div class="enroll-body">
+        <!-- Sponsor auto-placed, hidden from view -->
+        <div class="enroll-sponsor">✓ Sponsor ID <b>1425034</b> applied automatically</div>
+
+        <form id="enrollForm" action="#" method="POST">
+          <div class="field">
+            <label for="eFirst">First name</label>
+            <input id="eFirst" name="firstName" type="text" required placeholder="Jordan">
+          </div>
+          <div class="field">
+            <label for="eLast">Last name</label>
+            <input id="eLast" name="lastName" type="text" required placeholder="Rivera">
+          </div>
+          <div class="field">
+            <label for="eEmail">Email</label>
+            <input id="eEmail" name="email" type="email" required placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label for="ePhone">Phone</label>
+            <input id="ePhone" name="phone" type="tel" required placeholder="(555) 123-4567">
+          </div>
+          <div class="field">
+            <label for="eState">State</label>
+            <select id="eState" name="state" required>
+              <option value="">Select…</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option>
+              <option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option>
+              <option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+              <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+              <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option>
+              <option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+              <option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+              <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+              <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option>
+              <option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+          <!-- Hidden sponsor/agent id, pre-filled -->
+          <input type="hidden" name="sponsorId" value="1425034">
+          <input type="hidden" name="agentId" value="1425034">
+
+          <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center;">Complete Enrollment — $199</button>
+          <p class="form-note">By enrolling you agree to be contacted about your $199 agent program and licensing steps.</p>
+        </form>
+
+        <div class="enroll-success" id="enrollSuccess" style="display:none;">
+          <div class="ok">✓</div>
+          <h3>You're enrolled!</h3>
+          <p style="color:var(--slate);">We've received your enrollment under Sponsor <b>1425034</b>. Check your email for next steps and licensing info.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="wrap footer-grid">
@@ -173,6 +236,19 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
     document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+
+    function openEnroll() { document.getElementById('enrollModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeEnroll() { document.getElementById('enrollModal').classList.remove('open'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEnroll(); });
+
+    // NOTE: action="#" — point to your enrollment backend (PHP portal API, MailMunch, CRM webhook).
+    // Sponsor/agent id 1425034 is submitted as a hidden field automatically.
+    document.getElementById('enrollForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      this.style.display = 'none';
+      document.querySelector('.enroll-sponsor').style.display = 'none';
+      document.getElementById('enrollSuccess').style.display = 'block';
+    });
   </script>
 </body>
 </html>
